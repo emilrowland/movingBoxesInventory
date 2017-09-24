@@ -1,3 +1,4 @@
+from movingBox import MovingBox
 
 def print_menu():
     """Print menu"""
@@ -13,11 +14,12 @@ def print_menu():
 
 def main():
     """Main loop"""
-    while(True):
+    db = MovingBox()
+    while True:
         print_menu()
         try:
             option = int(input("Select option: "))
-        except:
+        except ValueError:
             print("You need to enter an number as option!")
             print("Try again!")
             continue
@@ -28,5 +30,6 @@ def main():
         else:
             print("Can't find any option: {0}".format(option))
             print("Try again!")
+
 
 main()
