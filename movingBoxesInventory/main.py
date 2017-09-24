@@ -25,6 +25,11 @@ def main():
             continue
         if option == 1:
             print("Creating new moving box")
+            db.add_moving_box('Box', 'Garaget')
+        elif option == 5:
+            db.print_list_of_moving_boxes()
+        elif option == 6:
+            print("Next available moving box ID: {0}".format(db.get_next_id()))
         elif option == 7:
             break
         else:
