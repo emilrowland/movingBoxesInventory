@@ -13,7 +13,7 @@ class MovingBox:
 
     def add_moving_box(self, content, status, moving_box_id=0):
         if moving_box_id == 0:
-            self.conn.execute("""INSERT INTO movingBoxes (content, status, createdDate) 
+            self.conn.execute("""INSERT INTO movingBoxes (content, status, createdDate)
             VALUES ('{0}','{1}', DATETIME('now','localtime'))""".format(content, status))
         else:
             self.conn.execute("INSERT INTO movingBoxes VALUES ({0},'{1}','{2}',	DATETIME('now','localtime'))".format(
