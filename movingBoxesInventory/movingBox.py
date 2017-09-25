@@ -11,20 +11,15 @@ class MovingBox:
     def __del__(self):
         self.conn.close()
 
-    def add_moving_box(self, content, status, moving_box_id=0):
-        if moving_box_id == 0:
-            self.conn.execute("""INSERT INTO movingBoxes (content, status, createdDate)
-            VALUES ('{0}','{1}', DATETIME('now','localtime'))""".format(content, status))
-        else:
-            self.conn.execute("INSERT INTO movingBoxes VALUES ({0},'{1}','{2}',	DATETIME('now','localtime'))".format(
-                moving_box_id, content, status))
+    def add_moving_box(self, content, status):
+        cursor = self.conn.cursor()
+        cursor.execute("""INSERT INTO movingBoxes (content, status, createdDate)
+        VALUES ('{0}','{1}', DATETIME('now','localtime'))""".format(content, status))
         self.conn.commit()
+        res = {'ID': cursor.lastrowid, 'content': content, 'status': status}
+        return res
 
     def print_list_of_moving_boxes(self):
         moving_boxes = self.conn.execute('SELECT * FROM movingBoxes')
         for i in moving_boxes:
             print(i)
-
-    def get_next_id(self):
-        result = self.conn.execute("SELECT last_insert_rowid();")
-        return result.fetchone()[0] + 1

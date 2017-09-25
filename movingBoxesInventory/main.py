@@ -1,4 +1,5 @@
 from movingBox import MovingBox
+from addMovingBox import AddMovingBox
 
 def print_menu():
     """Print menu"""
@@ -8,8 +9,7 @@ def print_menu():
     print("3.\tUpdate moving box status")
     print("4.\tUpdate moving box info")
     print("5.\tGet moving box list")
-    print("6.\tGet next available moving box ID")
-    print("7.\tExit application")
+    print("6.\tExit application")
 
 
 def main():
@@ -24,13 +24,11 @@ def main():
             print("Try again!")
             continue
         if option == 1:
-            print("Creating new moving box")
-            db.add_moving_box('Box', 'Garaget')
+            new_moving_box = AddMovingBox(db)
+            new_moving_box.add_moving_box()
         elif option == 5:
             db.print_list_of_moving_boxes()
         elif option == 6:
-            print("Next available moving box ID: {0}".format(db.get_next_id()))
-        elif option == 7:
             break
         else:
             print("Can't find any option: {0}".format(option))
