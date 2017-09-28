@@ -2,4 +2,5 @@ import os
 
 
 def clear_console():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    for _ in range(10):
+        print()
