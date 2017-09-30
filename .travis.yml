@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.4"
+  - "3.5"
+  - "3.6"
+env:
+  - CODACY_PROJECT_TOKEN=91c9ba170b1b47ef861200c9f9803d73
+install:
+  - pip install codacy-coverage
+script:
+  - pytest
+  - python-codacy-coverage -r coverage.xml
