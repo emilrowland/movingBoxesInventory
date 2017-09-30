@@ -3,6 +3,7 @@ from addMovingBox import AddMovingBox
 from getMovingBox import GetMovingBox
 import utility
 
+
 def print_menu():
     """Print menu"""
     print("Moving boxes inventory")

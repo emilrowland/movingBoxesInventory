@@ -1,7 +1,7 @@
 import utility
 from getMovingBox import GetMovingBox
 
-class AddMovingBox():
+class AddMovingBox:
     def __init__(self, moving_box_db):
         self.db = moving_box_db
 
