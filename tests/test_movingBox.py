@@ -1,12 +1,12 @@
 import unittest
 import os
 from pathlib import Path
-from movingBoxesInventory.movingBox import MovingBox
+from movingBoxesInventory import movingBox
 
 
 class TestMovingBox(unittest.TestCase):
     def setUp(self):
-        self.db = MovingBox()
+        self.db = movingBox.MovingBox()
         self.path_to_db = 'movingBoxes.db'
 
     def tearDown(self):
