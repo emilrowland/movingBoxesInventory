@@ -1,7 +1,7 @@
 import unittest
 import os
 from pathlib import Path
-from movingBox import MovingBox
+from movingBoxesInventory.movingBox import MovingBox
 
 
 class TestMovingBox(unittest.TestCase):
