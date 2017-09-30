@@ -11,6 +11,10 @@ install:
   - pip install codacy-coverage
   - pip install coverage
 script:
-  - python -m pytest tests/
   - coverage run setup.py test
-  - python-codacy-coverage -r coverage.xml
+after_success:
+  - coverage combine
+  - coverage report
+  - coverage xml
+    # Only report test coverage to Codacy for one of the builds (with Python 3.4)
+  - if [ ! -z "$CODACY_PROJECT_TOKEN" ] && [ "$TRAVIS_PYTHON_VERSION" == "3.4" ] && [ "$TRAVIS_BRANCH" == "master" ]; then python-codacy-coverage -r coverage.xml; fi
