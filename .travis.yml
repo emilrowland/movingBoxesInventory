@@ -10,5 +10,5 @@ env:
 install:
   - pip install codacy-coverage
 script:
-  - pytest
+  - python -m pytest tests/
   - python-codacy-coverage -r coverage.xml
