@@ -1,5 +1,7 @@
 from movingBox import MovingBox
 from addMovingBox import AddMovingBox
+from getMovingBox import GetMovingBox
+import utility
 
 def print_menu():
     """Print menu"""
@@ -26,8 +28,11 @@ def main():
         if option == 1:
             new_moving_box = AddMovingBox(db)
             new_moving_box.add_moving_box()
+        elif option == 2:
+            moving_box = GetMovingBox(db)
+            moving_box.interface()
         elif option == 5:
-            db.print_list_of_moving_boxes()
+            utility.print_list_of_moving_boxes(db.get_all_moving_boxes())
         elif option == 6:
             break
         else:

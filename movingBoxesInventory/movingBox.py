@@ -16,10 +16,13 @@ class MovingBox:
         cursor.execute("""INSERT INTO movingBoxes (content, status, createdDate)
         VALUES ('{0}','{1}', DATETIME('now','localtime'))""".format(content, status))
         self.conn.commit()
-        res = {'ID': cursor.lastrowid, 'content': content, 'status': status}
+        res = cursor.lastrowid
         return res
 
-    def print_list_of_moving_boxes(self):
+    def get_moving_box(self, box_id):
+        moving_box = self.conn.execute("SELECT * FROM movingBoxes WHERE ID = {0}".format(box_id))
+        return moving_box.fetchone()
+
+    def get_all_moving_boxes(self):
         moving_boxes = self.conn.execute('SELECT * FROM movingBoxes')
-        for i in moving_boxes:
-            print(i)
+        return moving_boxes
