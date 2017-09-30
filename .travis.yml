@@ -5,6 +5,7 @@ python:
   - "3.6"
 env:
   - CODACY_PROJECT_TOKEN=91c9ba170b1b47ef861200c9f9803d73
+  - PYTHONPATH=../
 install:
   - pip install codacy-coverage
 script:
